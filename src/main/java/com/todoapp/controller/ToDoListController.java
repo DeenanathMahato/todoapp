@@ -15,6 +15,7 @@ public class ToDoListController {
 	
 	@RequestMapping ("/home")
 	public String home (Model model) {
+		System.out.println("home controller fired.");
 		model.addAttribute("greeting", "Welcome to ToDoApp!");
 		return "home";
 	}
