@@ -42,3 +42,12 @@ body {
 	 margin: 25px 2px;
 }
 
+.todolistgroup {
+	border:none;
+	width: 110%;
+}
+
+.todolist{
+	background-color: #454b50;
+	color: white;
+}

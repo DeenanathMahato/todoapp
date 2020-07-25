@@ -14,7 +14,28 @@
 <body>
 	<%@ include file="../components/navbar.jsp" %>
 	<div class="container">
-		<h3>${greeting }</h3>
+		<h3 class="text-center">${greeting }</h3>
+		<div class="card-deck">
+			<div class="card col-md-2 border-0">
+				<div class="list-group todolistgroup">
+				  <a href="home" class="list-group-item todolist">Todo List</a>
+				  <a href="#" class="list-group-item list-group-item-secondary">Write Todo</a>
+				  <a href="#" class="list-group-item list-group-item-dark">Update Todo</a>
+				  <a href="#" class="list-group-item list-group-item-secondary">Read Todo</a>
+				  <a href="#" class="list-group-item list-group-item-dark">Next Plan</a>
+				</div>
+			</div>
+			<div class="card col-md-10">
+			  <div class="card-header">Featured</div>
+			  <div class="card-body">
+			    <h5 class="card-title">Special title treatment</h5>
+			    <p class="card-text">With supporting text below as a natural lead-in to additional content.
+		    	
+			    </p>
+			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			  </div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
