@@ -1,4 +1,44 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
 body {
-	
+	font-family: 'Baloo Bhai 2', cursive;
+}
+
+.header img {
+	filter: invert(100%);
+}
+
+.indexpage {
+	/* border:2px solid red; */
+	border-radius: 10px;
+	margin-top: 5px;
+ 	padding:126px 22px;
+	width: 1100px;
+    height: 478px;
+	background-image: url("../imgs/To_Do_List.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    color: rgb(94 111 148 / 78%);
+}
+.read-to-do {
+	float: left;
+}
+
+.update-to-do {
+	margin: auto;
+}
+
+.write-to-do {
+	float: right;
+}
+
+.mybtn {
+	 /* border:2px solid red; */
+	 display: inline-block;
+	 margin: 25px 2px;
 }
 

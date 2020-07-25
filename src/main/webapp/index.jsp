@@ -9,6 +9,20 @@
 </head>
 <body>
 	<%@ include file="WEB-INF/components/navbar.jsp" %>
-
+	<div class="container indexpage">
+		<h1>Welcome To Mytodo!</h1>
+		<div class="write-to-do mybtn">
+			<!-- <button type="button" class="btn btn-dark">Write Todo List</button> -->
+			<a class="btn btn-secondary" href="home" role="button">Write Todo List</a>
+		</div>
+		<div class="update-to-do mybtn">
+			<!-- <button type="button" class="btn btn-dark">Update Todo List</button> -->
+			<a class="btn btn-secondary" href="home" role="button">Update Todo List</a>
+		</div>
+		<div class="read-to-do mybtn">
+			<!-- <button type="button" class="btn btn-dark">Read Todo List</button> -->
+			<a class="btn btn-secondary" href="home" role="button">Read Todo List</a>
+		</div>
+	</div>
 </body>
 </html>
