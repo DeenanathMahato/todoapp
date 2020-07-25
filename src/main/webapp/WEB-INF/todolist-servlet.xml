@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
  
- 	<context:component-scan base-package="com.todoapp.controller" />
+ 	<context:component-scan base-package="com.todoapp" />
  	
  	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" name="viewResolver">
  		<property name="prefix">
@@ -21,6 +21,33 @@
  			<value>.jsp</value>
  		</property>
  	</bean>
+ 	
+ 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="dataSource">
+ 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+ 		<property name="url" value="jdbc:mysql://localhost:3306/todoappdb"/>
+ 		<property name="username" value="root" />
+ 		<property name="password" value="manager" />
+ 	</bean>
+ 	
+ 	<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="factory">
+ 		<property name="dataSource" ref="dataSource" />
+ 		<property name="hibernateProperties">
+ 			<props>
+ 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+ 				<prop key="hibernate.show_sql">true</prop>
+ 				<prop key="hibernate.hbm2ddl.auto">update</prop>
+ 			</props>
+ 		</property>
+ 		<property name="annotatedClasses">
+ 			<value>com.todoapp.entities.ToDoList</value>
+ 		</property>
+ 	</bean>
+ 	
+ 	<bean class="org.springframework.orm.hibernate5.HibernateTemplate" name="template">
+ 		<property name="sessionFactory" ref="factory" />
+ 	</bean>
+ 	
+ 	<bean class="com.todoapp.dao.ToDoListDaoImpl" name="dao" />
  	
  	<mvc:resources mapping="/resources/**" location="/resources/mythem1/" cache-period="31556926"/>
 	<mvc:annotation-driven/>
