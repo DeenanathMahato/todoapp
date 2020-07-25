@@ -9,6 +9,6 @@
 </head>
 <body>
 	<%@ include file="WEB-INF/components/navbar.jsp" %>
-	<h2>Implement To Do App As Soon As Possible</h2>
+
 </body>
 </html>
