@@ -11,6 +11,11 @@
 	<%@ include file="WEB-INF/components/navbar.jsp" %>
 	<div class="container indexpage">
 		<h1>Welcome To Mytodo!</h1>
+		<h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium facilis</h3>
+		<p>
+			quidem unde sunt voluptatibus accusamus autem, ab amet incidunt sed optio consequuntur<br>
+			voluptates nisi perferendis aperiam perspiciatis itaque aliquam voluptas
+		</p>
 		<div class="write-to-do mybtn">
 			<!-- <button type="button" class="btn btn-dark">Write Todo List</button> -->
 			<a class="btn btn-secondary" href="home" role="button">Write Todo List</a>

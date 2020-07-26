@@ -11,21 +11,50 @@ body {
 	filter: invert(100%);
 }
 
+/* start index page css */
 .indexpage {
 	/* border:2px solid red; */
 	border-radius: 10px;
 	margin-top: 5px;
- 	padding:126px 22px;
+ 	padding:110px 7px;
 	width: 1100px;
     height: 478px;
-	background-image: url("../imgs/To_Do_List.png");
+	background-image: url("../imgs/todo-bgimg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     text-align: center;
     color: rgb(94 111 148 / 78%);
 }
+
+h1, h3 {
+	color: #b7aeae;
+}
+
+.indexpage p {
+	font-family: 'Baloo Da 2', cursive;
+	font-size: 20px;
+	color: #b7aeae;
+}
+
+
+/* end index page css */
+
+/* start home page css */
+.home-container {
+	border-radius: 10px;
+	margin-top: 5px;
+ 	padding:30px 7px;
+	width: 1100px;
+    height: 478px;
+	background-image: url("../imgs/todo-bgimg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
 .read-to-do {
-	float: left;
+	/* float: left; */
+	display: flex; 
 }
 
 .update-to-do {
@@ -33,21 +62,24 @@ body {
 }
 
 .write-to-do {
-	float: right;
-}
-
-.mybtn {
-	 /* border:2px solid red; */
-	 display: inline-block;
-	 margin: 25px 2px;
+	/* float: right; */
+	display: flex; 
 }
 
 .todolistgroup {
 	border:none;
 	width: 110%;
+	display:flex;
 }
 
 .todolist{
 	background-color: #454b50;
 	color: white;
+}
+
+/* end home page css */
+.mybtn {
+	 /* border:2px solid red; */
+	 display: inline-block;
+	 margin: 5px 2px;
 }

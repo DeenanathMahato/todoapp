@@ -13,10 +13,10 @@
 </head>
 <body>
 	<%@ include file="../components/navbar.jsp" %>
-	<div class="container">
+	<div class="container home-container">
 		<h3 class="text-center">${greeting }</h3>
 		<div class="card-deck">
-			<div class="card col-md-2 border-0">
+			<div class="card col-md-2 border-0 mx-4 px-0 text-center">
 				<div class="list-group todolistgroup">
 				  <a href="home" class="list-group-item todolist">Todo List</a>
 				  <a href="#" class="list-group-item list-group-item-secondary">Write Todo</a>
