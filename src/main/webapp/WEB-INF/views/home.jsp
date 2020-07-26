@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isELIgnored="false" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,30 +10,58 @@
 	<title>home</title>
 	
 	<%@ include file="../components/common-css-js.jsp" %>
-	
 </head>
 <body>
 	<%@ include file="../components/navbar.jsp" %>
 	<div class="container home-container">
-		<h3 class="text-center">${greeting }</h3>
+		<h3 class="text-center">${response }</h3>
 		<div class="card-deck">
-			<div class="card col-md-2 border-0 mx-4 px-0 text-center">
+			<div class="card col-md-2 border-0 mx-4 px-0 text-center h-100">
 				<div class="list-group todolistgroup">
 				  <a href="home" class="list-group-item todolist">Todo List</a>
-				  <a href="#" class="list-group-item list-group-item-secondary">Write Todo</a>
-				  <a href="#" class="list-group-item list-group-item-dark">Update Todo</a>
-				  <a href="#" class="list-group-item list-group-item-secondary">Read Todo</a>
+				  <a href="home" class="list-group-item list-group-item-secondary">Write Todo</a>
+				  <a href="updatetodo" class="list-group-item list-group-item-dark">Update Todo</a>
+				  <a href="readtodo" class="list-group-item list-group-item-secondary">Read Todo</a>
 				  <a href="#" class="list-group-item list-group-item-dark">Next Plan</a>
 				</div>
 			</div>
 			<div class="card col-md-10">
-			  <div class="card-header">Featured</div>
+			  <div class="card-header">${todoHeader }</div>
 			  <div class="card-body">
-			    <h5 class="card-title">Special title treatment</h5>
-			    <p class="card-text">With supporting text below as a natural lead-in to additional content.
-		    	
-			    </p>
-			    <a href="#" class="btn btn-primary">Go somewhere</a>
+			    <c:if test="${todoHeader == 'Write Todo'}">
+				    <form:form action="savetodo" modelAttribute="todolist" method="post">
+						<div class="form-group write-todo">
+							<label for="title">Title</label>
+							<form:input class="form-control" path="title" id="title" />
+							<!-- <input type="text" class="form-control" id="title" placeholder="Enter Title"> -->
+							<label for="description">Description</label>
+							<form:textarea class="form-control" path="description" id="description" rows="4" />
+							<!-- <textarea class="form-control" id="description" rows="4" placeholder="Write Your Description.."></textarea> -->
+						</div>
+						<form:button class="btn btn-secondary">${changeBtn }</form:button>
+				     </form:form>
+			  	</c:if>
+			    <c:if test="${todoHeader == 'Update Todo'}">
+			    	<form:form action="updateTodo" modelAttribute="todolist" method="post">
+			    		<div class="form-group write-todo">
+				    		<label for="title">Title</label>
+				    		<form:input class="form-control" path="title" id="title"/>
+				    		<label for="description">Description</label>
+				    		<form:textarea class="form-control" path="description" id="description" rows="4" />
+				    	</div>
+				    	<%-- <form:button class="btn btn-secondary" value="${changeBtn }"/> --%>
+				    	<form:button class="btn btn-secondary">${changeBtn }</form:button>
+			    	</form:form>
+				   <%--  <form action="#">
+						<div class="form-group write-todo">
+							<label for="title">Title</label>
+							<input type="text" class="form-control" id="title" placeholder="Enter Title">
+							<label for="description">Description</label>
+							<textarea class="form-control" id="description" rows="4" placeholder="Write Your Description.."></textarea>
+						</div>
+						<button class="btn btn-secondary">${changeBtn }</button>
+				     </form> --%>
+			  	</c:if>			  	
 			  </div>
 			</div>
 		</div>
