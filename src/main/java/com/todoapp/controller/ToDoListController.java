@@ -1,11 +1,15 @@
 package com.todoapp.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.todoapp.entities.ToDoList;
 import com.todoapp.services.ToDoListServices;
@@ -51,17 +55,27 @@ public class ToDoListController {
 		return "redirect:/home";
 	}
 	
-	@RequestMapping ("/updatetodo")
-	public String update (Model model) {
+	@RequestMapping ("/processupdate")
+	public String processUpdate (Model model) {
 		
-		ToDoList todoList = new ToDoList ();
-		todoList.setTitle("Testing");
-		todoList.setDescription("Yes This is getting...");
+		List<ToDoList> todoList = services.getAllToDo();
 		
 		model.addAttribute("todoHeader", "Update Todo");
 		model.addAttribute("changeBtn", "Update");
 		model.addAttribute("todolist", todoList);
 
 		return "home";
+	}
+	
+	@RequestMapping (value = "/updatetodo")
+	public String updateTodo (@RequestParam ("id") int id, @RequestParam ("title") String title, 
+			@RequestParam ("description") String description, Model model) {
+		
+		ToDoList todoList = new ToDoList (id, title, description); 
+		System.out.println("id::::" + todoList);
+		services.updateToDo(todoList);
+		model.addAttribute("msg", "Todo Successfully Updated.");
+		
+		return "redirect:/processupdate";
 	}
 }

@@ -103,3 +103,7 @@ h1, h3 {
 	margin: 9px auto;
 	padding:5px;
 }
+
+.card-right {
+	height:100px;
+}

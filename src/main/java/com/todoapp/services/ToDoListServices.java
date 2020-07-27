@@ -1,5 +1,7 @@
 package com.todoapp.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,4 +18,13 @@ public class ToDoListServices {
 		
 		return dao.saveToDo(toDoList);
 	}
+	
+	public void updateToDo (ToDoList toDoList) {
+		dao.updateToDo(toDoList);
+	}
+	
+	public List<ToDoList> getAllToDo () {
+		return dao.getAllTodoList();
+	}
+	
 }

@@ -28,12 +28,12 @@
 				<div class="list-group todolistgroup">
 				  <a href="home" class="list-group-item todolist">Todo List</a>
 				  <a href="home" class="list-group-item list-group-item-secondary">Write Todo</a>
-				  <a href="updatetodo" class="list-group-item list-group-item-dark">Update Todo</a>
+				  <a href="processupdate" class="list-group-item list-group-item-dark">Update Todo</a>
 				  <a href="readtodo" class="list-group-item list-group-item-secondary">Read Todo</a>
 				  <a href="#" class="list-group-item list-group-item-dark">Next Plan</a>
 				</div>
 			</div>
-			<div class="card col-md-10">
+			<div class="card col-md-10 card-right" style="height:370px;overflow-y: scroll;">
 			  <div class="card-header">${todoHeader }</div>
 			  <div class="card-body">
 			    <c:if test="${todoHeader == 'Write Todo'}">
@@ -47,17 +47,20 @@
 						<form:button class="btn btn-secondary">${changeBtn }</form:button>
 				     </form:form>
 			  	</c:if>
-			    <c:if test="${todoHeader == 'Update Todo'}">
-			    	<form:form action="updateTodo" modelAttribute="todolist" method="post">
-			    		<div class="form-group write-todo">
-				    		<label for="title">Title</label>
-				    		<form:input class="form-control" path="title" id="title"/>
-				    		<label for="description">Description</label>
-				    		<form:textarea class="form-control" path="description" id="description" rows="4" />
-				    	</div>
-				    	<form:button class="btn btn-secondary">${changeBtn }</form:button>
-			    	</form:form>
-			  	</c:if>			  	
+			  	<c:if test="${todoHeader == 'Update Todo'}">
+			  		<c:forEach var="todoData" items="${todolist }">
+			  			<form action="updatetodo" >
+					  		<div class="form-group my-3">
+					  			<input type="hidden" name="id" value="${todoData.id}">
+					  			<label for="title">Title</label>
+					  			<input type="text"  class="form-control" name="title"value="${todoData.title}">
+					  			<label for="description">Description</label>
+					  			<textarea  class="form-control" rows="4" name="description" id="description">${todoData.description}</textarea>
+					  		</div>
+					  		<button class="btn btn-secondary">${changeBtn }</button>
+				  		</form>
+			  		</c:forEach>
+			  	</c:if>
 			  </div>
 			</div>
 		</div>
