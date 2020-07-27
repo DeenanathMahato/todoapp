@@ -14,7 +14,15 @@
 <body>
 	<%@ include file="../components/navbar.jsp" %>
 	<div class="container home-container">
-		<h3 class="text-center">${response }</h3>
+		
+		<%
+			String msg = request.getParameter("msg");
+		%>
+		
+		<div class="show-message text-center text-light">
+			<h5><c:out value="<%= msg %>"></c:out></h5>
+		</div>
+		
 		<div class="card-deck">
 			<div class="card col-md-2 border-0 mx-4 px-0 text-center h-100">
 				<div class="list-group todolistgroup">
@@ -33,10 +41,8 @@
 						<div class="form-group write-todo">
 							<label for="title">Title</label>
 							<form:input class="form-control" path="title" id="title" />
-							<!-- <input type="text" class="form-control" id="title" placeholder="Enter Title"> -->
 							<label for="description">Description</label>
 							<form:textarea class="form-control" path="description" id="description" rows="4" />
-							<!-- <textarea class="form-control" id="description" rows="4" placeholder="Write Your Description.."></textarea> -->
 						</div>
 						<form:button class="btn btn-secondary">${changeBtn }</form:button>
 				     </form:form>
@@ -49,18 +55,8 @@
 				    		<label for="description">Description</label>
 				    		<form:textarea class="form-control" path="description" id="description" rows="4" />
 				    	</div>
-				    	<%-- <form:button class="btn btn-secondary" value="${changeBtn }"/> --%>
 				    	<form:button class="btn btn-secondary">${changeBtn }</form:button>
 			    	</form:form>
-				   <%--  <form action="#">
-						<div class="form-group write-todo">
-							<label for="title">Title</label>
-							<input type="text" class="form-control" id="title" placeholder="Enter Title">
-							<label for="description">Description</label>
-							<textarea class="form-control" id="description" rows="4" placeholder="Write Your Description.."></textarea>
-						</div>
-						<button class="btn btn-secondary">${changeBtn }</button>
-				     </form> --%>
 			  	</c:if>			  	
 			  </div>
 			</div>

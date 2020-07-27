@@ -18,9 +18,6 @@ public class ToDoListController {
 	
 	@RequestMapping ("/home")
 	public String home (Model model) {
-		
-		model.addAttribute("response", "Welcome to ToDoApp!");
-		
 		ToDoList todoList = new ToDoList ();
 		model.addAttribute("todoHeader", "Write Todo");
 		model.addAttribute("changeBtn", "Save");
@@ -36,32 +33,26 @@ public class ToDoListController {
 		
 		if (todoList.getTitle().isEmpty() )
 		{
-			model.addAttribute("validation", "Plese Enter Title");
+			model.addAttribute("msg", "Plese Enter Title&Description");
 			
 			return "redirect:/home";
 		}
 		else if (todoList.getDescription().isEmpty()) {
 			
-			model.addAttribute("validation", "Plese Enter Description");
+			model.addAttribute("msg", "Plese Enter Title&Description");
 			
 			return "redirect:/home";
 		}
 		
 		int status = this.services.saveToDo(todoList);
 		if (status > 0)
-			model.addAttribute("response", status + " Todo Inserted Successfully!");
-		
-		model.addAttribute("todoHeader", "Write Todo");
-		model.addAttribute("changeBtn", "Save");
-		
-		todoList = null;
-		return "home";
+			model.addAttribute("msg", status + " Todo Inserted Successfully!");
+	
+		return "redirect:/home";
 	}
 	
 	@RequestMapping ("/updatetodo")
 	public String update (Model model) {
-		
-		model.addAttribute("response", "Welcome to ToDoApp!");
 		
 		ToDoList todoList = new ToDoList ();
 		todoList.setTitle("Testing");
