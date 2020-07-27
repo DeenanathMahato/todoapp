@@ -83,3 +83,15 @@ h1, h3 {
 	 display: inline-block;
 	 margin: 5px 2px;
 }
+
+.write-todo {
+	height: 230px;
+}
+
+.write-todo label {
+	margin:2px;
+}
+
+#description {
+	max-height: 60%;
+}
