@@ -3,8 +3,6 @@ package com.todoapp.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
