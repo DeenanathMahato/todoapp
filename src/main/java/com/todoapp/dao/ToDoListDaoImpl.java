@@ -19,9 +19,6 @@ public class ToDoListDaoImpl implements ToDoListDao {
 	@Autowired
 	HibernateTemplate template;
 	
-	@Autowired
-	EntityManager em;
-
 	@Transactional
 	public int saveToDo(ToDoList toDoList) {
 		// storing to do list object
