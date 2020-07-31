@@ -2,6 +2,12 @@ package com.todoapp.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,6 +20,9 @@ public class ToDoListDaoImpl implements ToDoListDao {
 
 	@Autowired
 	HibernateTemplate template;
+	
+	@Autowired
+	EntityManager em;
 
 	@Transactional
 	public int saveToDo(ToDoList toDoList) {
@@ -30,7 +39,10 @@ public class ToDoListDaoImpl implements ToDoListDao {
 	
 	public List<ToDoList> getAllTodoList() {
 		// retrieving all records
-		List<ToDoList> todoList = this.template.loadAll(ToDoList.class);
+		DetachedCriteria criteria = DetachedCriteria.forClass(ToDoList.class);
+		criteria.addOrder(Order.desc("id"));
+		
+		List<ToDoList> todoList = (List<ToDoList>) this.template.findByCriteria(criteria);
 		return todoList;
 	}
 
