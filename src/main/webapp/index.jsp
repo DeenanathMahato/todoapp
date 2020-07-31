@@ -22,11 +22,11 @@
 		</div>
 		<div class="update-to-do mybtn">
 			<!-- <button type="button" class="btn btn-dark">Update Todo List</button> -->
-			<a class="btn btn-secondary" href="home" role="button">Update Todo List</a>
+			<a class="btn btn-secondary" href="processupdate" role="button">Update Todo List</a>
 		</div>
 		<div class="read-to-do mybtn">
 			<!-- <button type="button" class="btn btn-dark">Read Todo List</button> -->
-			<a class="btn btn-secondary" href="home" role="button">Read Todo List</a>
+			<a class="btn btn-secondary" href="readtodo" role="button">Read Todo List</a>
 		</div>
 	</div>
 </body>

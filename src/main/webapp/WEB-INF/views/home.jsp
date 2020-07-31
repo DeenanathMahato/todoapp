@@ -61,6 +61,14 @@
 				  		</form>
 			  		</c:forEach>
 			  	</c:if>
+			  	<c:if test="${todoHeader == 'Read Todo'}">
+			  		<c:forEach var="eachTodo" items="${todolist }">
+		  				<p><strong>Title: </strong>${eachTodo.title}</p>
+		  				<strong>Description:</strong>
+		  				<p>${eachTodo.description}</p>
+		  				<hr>
+			  		</c:forEach>
+			  	</c:if>
 			  </div>
 			</div>
 		</div>

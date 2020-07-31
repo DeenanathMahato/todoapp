@@ -78,4 +78,15 @@ public class ToDoListController {
 		
 		return "redirect:/processupdate";
 	}
+	
+	@RequestMapping ("/readtodo")
+	public String readTodo (Model model) {
+		
+		List<ToDoList> todoList = services.getAllToDo();
+		
+		model.addAttribute("todoHeader", "Read Todo");
+		model.addAttribute("todolist", todoList);
+		
+		return "home";
+	}
 }
