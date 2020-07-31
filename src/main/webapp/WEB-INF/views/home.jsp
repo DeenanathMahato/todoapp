@@ -22,7 +22,7 @@
 		<div class="show-message text-center text-light">
 			<h5><c:out value="<%= msg %>"></c:out></h5>
 		</div>
-		
+
 		<div class="card-deck">
 			<div class="card col-md-2 border-0 mx-4 px-0 text-center h-100">
 				<div class="list-group todolistgroup">
@@ -33,7 +33,7 @@
 				  <a href="#" class="list-group-item list-group-item-dark">Next Plan</a>
 				</div>
 			</div>
-			<div class="card col-md-10 card-right" style="height:370px;overflow-y: scroll;">
+			<div class="card col-md-10 card-right" style="height:375px; overflow-y: scroll;">
 			  <div class="card-header">${todoHeader }</div>
 			  <div class="card-body">
 			    <c:if test="${todoHeader == 'Write Todo'}">
@@ -42,7 +42,7 @@
 							<label for="title">Title</label>
 							<form:input class="form-control" path="title" id="title" />
 							<label for="description">Description</label>
-							<form:textarea class="form-control" path="description" id="description" rows="4" />
+							<form:textarea class="form-control " path="description" id="description" rows="4" />
 						</div>
 						<form:button class="btn btn-secondary">${changeBtn }</form:button>
 				     </form:form>
@@ -55,7 +55,7 @@
 					  			<label for="title">Title</label>
 					  			<input type="text"  class="form-control" name="title"value="${todoData.title}">
 					  			<label for="description">Description</label>
-					  			<textarea  class="form-control" rows="4" name="description" id="description">${todoData.description}</textarea>
+					  			<textarea  class="form-control max-height" rows="4" name="description" id="description">${todoData.description}</textarea>
 					  		</div>
 					  		<button class="btn btn-secondary">${changeBtn }</button>
 				  		</form>
