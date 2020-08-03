@@ -2,8 +2,6 @@ package com.todoapp.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.springframework.beans.factory.annotation.Autowired;
