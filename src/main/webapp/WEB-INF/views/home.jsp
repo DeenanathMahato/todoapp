@@ -30,7 +30,7 @@
 				  <a href="home" class="list-group-item list-group-item-secondary">Write Todo</a>
 				  <a href="processupdate" class="list-group-item list-group-item-dark">Update Todo</a>
 				  <a href="readtodo" class="list-group-item list-group-item-secondary">Read Todo</a>
-				  <a href="#" class="list-group-item list-group-item-dark">Next Plan</a>
+				  <a href="processimage" class="list-group-item list-group-item-dark">Upload Image</a>
 				</div>
 			</div>
 			<div class="card col-md-10 card-right" style="height:375px; overflow-y: scroll;">
@@ -68,6 +68,15 @@
 		  				<p>${eachTodo.description}</p>
 		  				<hr>
 			  		</c:forEach>
+			  	</c:if>
+			  	<c:if test="${todoHeader == 'Upload Image'}">
+			  		<form action="uploadimage" >
+			  			<div class="form-group my-3">
+			  				<label for="imageid">Select Image</label>
+    						<input type="file" name="imageFile" class="form-control-file" id="imageid">
+			  			</div>
+			  			<button class="btn btn-secondary">${changeBtn }</button>
+			  		</form>
 			  	</c:if>
 			  </div>
 			</div>
