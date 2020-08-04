@@ -10,10 +10,10 @@ import com.todoapp.entities.Student;
 public class StudentServices {
 
 	@Autowired
-	StudentDao dao;
+	StudentDao studentDao;
 	
 	public int saveStudentRecord (Student student) {
-		int id = dao.saveStudent(student);
+		int id = studentDao.saveStudent(student);
 		return id;
 	}
 }
