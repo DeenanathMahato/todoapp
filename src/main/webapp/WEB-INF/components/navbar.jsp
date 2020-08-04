@@ -11,7 +11,8 @@
 							class="sr-only">(current)</span></a></li>
 					<li class="nav-item"><a class="nav-link" href="about">About</a></li>
 					<li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
-					<li class="nav-item"><a class="nav-link" href="help">Help</a></li>
+					<li class="nav-item"><a class="nav-link" href="login">Login</a></li>
+					<li class="nav-item"><a class="nav-link" href="register">Sign Up</a></li>
 				</ul>
 				<form action="search" class="form-inline my-2 my-lg-0" target="_blank">
 			      <input class="form-control mr-sm-2" name="querybox" type="search" placeholder="Search" aria-label="Search">
