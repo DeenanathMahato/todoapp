@@ -12,20 +12,20 @@ import com.todoapp.entities.Student;
 public class StudentDaoImpl implements StudentDao {
 
 	@Autowired
-	HibernateTemplate template;
+	HibernateTemplate hTemplate;
 	
 	@Transactional
 	public int saveStudent(Student student) {
 		// saving the data of student
-		int id = (Integer) template.save(student);
+		int id = (Integer) hTemplate.save(student);
 		return id;
 	}
 
 	public HibernateTemplate getTemplate() {
-		return template;
+		return hTemplate;
 	}
 
-	public void setTemplate(HibernateTemplate template) {
-		this.template = template;
+	public void setTemplate(HibernateTemplate hTemplate) {
+		this.hTemplate = hTemplate;
 	}
 }
