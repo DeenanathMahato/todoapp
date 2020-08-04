@@ -3,6 +3,7 @@ package com.todoapp.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,9 +11,11 @@ import javax.persistence.Id;
 public class Student {
 
 	@Id
-	private String id;
+	private int id;
 	private String name;
 	private Date dob;
+	
+	@ElementCollection // this annotation is most required
 	private List<String> courses;
 	private String gender;
 	private String type;
@@ -22,7 +25,7 @@ public class Student {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(String id, String name, Date dob, List<String> courses, String gender, String type) {
+	public Student(int id, String name, Date dob, List<String> courses, String gender, String type) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -40,11 +43,11 @@ public class Student {
 		this.name = name;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -82,7 +85,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [name=" + name + ", id=" + id + ", dob=" + dob + ", courses=" + courses + ", gender=" + gender
+		return "Student [id=" + id + ", name=" + name + ", dob=" + dob + ", courses=" + courses + ", gender=" + gender
 				+ ", type=" + type + "]";
 	}
 }
