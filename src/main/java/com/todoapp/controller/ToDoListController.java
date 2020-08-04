@@ -19,12 +19,15 @@ public class ToDoListController {
 	@Autowired
 	ToDoListServices services;
 	
+	private String filename = "default.jpg";
+	
 	@RequestMapping ("/home")
 	public String home (Model model) {
 		ToDoList todoList = new ToDoList ();
 		model.addAttribute("todoHeader", "Write Todo");
 		model.addAttribute("changeBtn", "Save");
 		model.addAttribute("todolist", todoList);
+		model.addAttribute("filename", filename);
 		
 		return "home";
 	}
@@ -62,6 +65,7 @@ public class ToDoListController {
 		model.addAttribute("todoHeader", "Update Todo");
 		model.addAttribute("changeBtn", "Update");
 		model.addAttribute("todolist", todoList);
+		model.addAttribute("filename", filename);
 
 		return "home";
 	}
@@ -85,6 +89,7 @@ public class ToDoListController {
 		
 		model.addAttribute("todoHeader", "Read Todo");
 		model.addAttribute("todolist", todoList);
+		model.addAttribute("filename", filename);
 		
 		return "home";
 	}

@@ -59,6 +59,11 @@
 	<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" name="transactionManager">
 		<property name="sessionFactory" ref="factory"></property>
 	</bean>
+	
+	<!-- configuring multipart resolver to upload file or image -->
+	<bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- <property name="maxUploadSize" value="50000"></property> -->
+	</bean>
  	
  </beans>
  

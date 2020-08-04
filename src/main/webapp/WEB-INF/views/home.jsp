@@ -20,9 +20,11 @@
 		%>
 		
 		<div class="show-message text-center text-light">
+			<div class="card" style="float:right; width: 2rem; height: 2rem; display: inline-block; border-radius: 30px;">
+				<img alt="img" style="width:35px; height:35px; border-radius: 30px;" src="<c:url value="/resources/imgs/${filename }" />">
+			</div>
 			<h5><c:out value="<%= msg %>"></c:out></h5>
 		</div>
-
 		<div class="card-deck">
 			<div class="card col-md-2 border-0 mx-4 px-0 text-center h-100">
 				<div class="list-group todolistgroup">
@@ -34,7 +36,7 @@
 				</div>
 			</div>
 			<div class="card col-md-10 card-right" style="height:375px; overflow-y: scroll;">
-			  <div class="card-header">${todoHeader }</div>
+			  <div class="card-header">${todoHeader}</div>
 			  <div class="card-body">
 			    <c:if test="${todoHeader == 'Write Todo'}">
 				    <form:form action="savetodo" modelAttribute="todolist" method="post">
@@ -44,7 +46,7 @@
 							<label for="description">Description</label>
 							<form:textarea class="form-control " path="description" id="description" rows="4" />
 						</div>
-						<form:button class="btn btn-secondary">${changeBtn }</form:button>
+						<form:button class="btn btn-secondary">${changeBtn}</form:button>
 				     </form:form>
 			  	</c:if>
 			  	<c:if test="${todoHeader == 'Update Todo'}">
@@ -57,7 +59,7 @@
 					  			<label for="description">Description</label>
 					  			<textarea  class="form-control max-height" rows="4" name="description" id="description">${todoData.description}</textarea>
 					  		</div>
-					  		<button class="btn btn-secondary">${changeBtn }</button>
+					  		<button class="btn btn-secondary">${changeBtn}</button>
 				  		</form>
 			  		</c:forEach>
 			  	</c:if>
@@ -70,12 +72,12 @@
 			  		</c:forEach>
 			  	</c:if>
 			  	<c:if test="${todoHeader == 'Upload Image'}">
-			  		<form action="uploadimage" >
+			  		<form action="uploadimage" method="post" enctype="multipart/form-data">
 			  			<div class="form-group my-3">
 			  				<label for="imageid">Select Image</label>
-    						<input type="file" name="imageFile" class="form-control-file" id="imageid">
+    						<input type="file" name="profileImg" class="form-control-file" id="imageid">
 			  			</div>
-			  			<button class="btn btn-secondary">${changeBtn }</button>
+			  			<button class="btn btn-secondary">${changeBtn}</button>
 			  		</form>
 			  	</c:if>
 			  </div>
