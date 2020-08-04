@@ -17,7 +17,7 @@
 			<div class="col-md-6 offset-md-3">
 				<div class="card"><div class="card-body">
 					<h5 class="text-center"><u>Sign Up Form</u></h5>
-					<form action="formsubmited">
+					<form action="formsubmited" method="post" >
 						<div class="form-group">
 							<label for="nameid">Your Name</label> 
 							<input type="text" class="form-control" name="name" id="nameid" aria-describedby="nameHelp" placeholder="Enter Your Name">
@@ -60,7 +60,7 @@
 								<option>New Student</option>
 							</select>
 						</div>
-						<button type="button" class="btn btn-secondary btn-sm btn-block">Submit</button>
+						<button type="submit" class="btn btn-secondary btn-sm btn-block">Submit</button>
 					</form>
 				</div>
 				</div>
