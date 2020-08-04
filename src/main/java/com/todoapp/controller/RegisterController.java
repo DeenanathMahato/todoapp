@@ -1,23 +1,31 @@
 package com.todoapp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.todoapp.entities.Student;
+import com.todoapp.services.StudentServices;
 
 @Controller
 public class RegisterController {
 
+	@Autowired
+	StudentServices studentServices;
+	
 	@RequestMapping ("/register")
-	public String registerForm () {
+	public String showForm () {
 		
 		return "registerform";
 	}
 	
-	@RequestMapping ("/formsubmited")
-	public String submitForm (@ModelAttribute Student student) {
+	@RequestMapping (path = "/formsubmited", method = RequestMethod.POST)
+	public String submitForm (@ModelAttribute("student") Student student) {
 		System.out.println(student);
+		int id = studentServices.saveStudentRecord(student);
+		System.out.println("Number of Row affected: " + id);
 		return "formsuccess";
 	}
 }
