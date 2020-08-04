@@ -55,6 +55,7 @@
  	</bean>
  	
  	<bean class="com.todoapp.dao.ToDoListDaoImpl" name="dao" />
+ 	<bean class="com.todoapp.dao.StudentDaoImpl" name="studentDao" />
  	
  	<mvc:resources mapping="/resources/**" location="/resources/mythem1/" cache-period="31556926"/>
 	<mvc:annotation-driven/>
