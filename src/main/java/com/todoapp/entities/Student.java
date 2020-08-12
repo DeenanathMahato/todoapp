@@ -3,9 +3,11 @@ package com.todoapp.entities;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Student {
@@ -20,12 +22,15 @@ public class Student {
 	private String gender;
 	private String type;
 
+	@OneToOne (targetEntity = Address.class, cascade = CascadeType.ALL)
+	private Address address;
+		
 	public Student() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Student(int id, String name, Date dob, List<String> courses, String gender, String type) {
+	public Student(int id, String name, Date dob, List<String> courses, String gender, String type, Address address) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -33,6 +38,7 @@ public class Student {
 		this.courses = courses;
 		this.gender = gender;
 		this.type = type;
+		this.address = address;
 	}
 
 	public String getName() {
@@ -83,9 +89,18 @@ public class Student {
 		this.type = type;
 	}
 
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", dob=" + dob + ", courses=" + courses + ", gender=" + gender
-				+ ", type=" + type + "]";
+				+ ", type=" + type + ", address=" + address + "]";
 	}
+
 }

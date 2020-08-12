@@ -46,6 +46,7 @@
  			<list>
  				<value>com.todoapp.entities.ToDoList</value>
  				<value>com.todoapp.entities.Student</value>
+ 				<value>com.todoapp.entities.Address</value>
  			</list>
  		</property>
  	</bean>
